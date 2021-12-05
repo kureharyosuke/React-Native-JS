@@ -41,6 +41,9 @@
 - horizontal
 - contentContainerStyle
   -- ScrollView 하는 부분에는 flex 사용하면 안된다.
+- pagingEnabled
+- showsHorizontalScrollIndicator={false} : 스크롤의 수를 보이지 않게 한다.
+- indicatorStyle="white" : showsHorizontalScrollIndicator={true} && ios -v
 
 ##### horizontal prop
 
@@ -49,3 +52,8 @@
 #### Dimensions
 
 - 핸드폰 기종의 widht height 를 알수 있어서, 적용할수 있다.
+
+#### pagingEnabled
+
+- 우리가 스크롤을 자유롭게 하지 못하게 한다.
+  -- 기준점을 잡아준다.

@@ -6,23 +6,18 @@ import { StyleSheet, Text, View, ScrollView, Dimensions } from "react-native";
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 // const SCREEN_WIDTH = Dimensions.get("window").width;
 const { height: SCREEN_HEIGHT } = Dimensions.get("window");
+// const SCREEN_HEIGHT = Dimensions.get("window").height;
 
 console.log(SCREEN_WIDTH);
 console.log(SCREEN_HEIGHT);
 
-export default function App() {
+export default function Deimensions() {
   return (
     <View style={styles.container}>
       <View style={styles.city}>
         <Text style={styles.cityName}>Tokyo</Text>
       </View>
-      <ScrollView
-        pagingEnabled
-        horizontal
-        showsHorizontalScrollIndicator={true}
-        indicatorStyle="white"
-        contentContainerStyle={styles.weather}
-      >
+      <ScrollView horizontal contentContainerStyle={styles.weather}>
         <View style={styles.day}>
           <Text style={styles.temp}>27</Text>
           <Text style={styles.description}>Sunny</Text>

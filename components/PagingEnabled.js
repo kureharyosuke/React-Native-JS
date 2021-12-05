@@ -10,7 +10,7 @@ const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 console.log(SCREEN_WIDTH);
 console.log(SCREEN_HEIGHT);
 
-export default function App() {
+export default function PagingEnabled() {
   return (
     <View style={styles.container}>
       <View style={styles.city}>
@@ -19,8 +19,6 @@ export default function App() {
       <ScrollView
         pagingEnabled
         horizontal
-        showsHorizontalScrollIndicator={true}
-        indicatorStyle="white"
         contentContainerStyle={styles.weather}
       >
         <View style={styles.day}>
