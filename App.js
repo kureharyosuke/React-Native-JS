@@ -2,37 +2,58 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, ScrollView, Dimensions } from "react-native";
 import * as Location from "expo-location";
+// import dotenv from "dotenv";
+// dotenv.config();
 
 // const { width, height } = Dimensions.get("window");
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 // const SCREEN_WIDTH = Dimensions.get("window").width;
 const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 
-console.log(SCREEN_WIDTH);
-console.log(SCREEN_HEIGHT);
+// TODO: API_KEY add DOTENV
+// const API_KEY = "";
+// console.log("🚀 ~ file: App.js ~ line 14 ~ API_KEY", API_KEY);
+
+const EXCLUDE = "alerts";
 
 export default function App() {
+  const [city, setCity] = useState("Loading");
   const [location, setLocation] = useState();
+  const [days, setDays] = useState([]);
   const [ok, setOk] = useState(true);
-  const ask = async () => {
-    const permission = await Location.requestForegroundPermissionsAsync();
-    console.log("🚀 ~ file: App.js ~ line 19 ~ ask ~ permission", permission);
-    //   🚀 ~ file: App.js ~ line 19 ~ ask ~ permission Object {
-    //   "canAskAgain": true,
-    //   "expires": "never",
-    //   "granted": true,
-    //   "status": "granted",
-    //   }
+  const getWeather = async () => {
+    const { granted } = await Location.requestForegroundPermissionsAsync();
+    if (!granted) {
+      setOk(false);
+    }
+    const {
+      coords: { latitude, longitude },
+    } = await Location.getCurrentPositionAsync({
+      accuracy: Location.Accuracy.BestForNavigation,
+    });
+    const location = await Location.reverseGeocodeAsync(
+      {
+        latitude,
+        longitude,
+      },
+      { useGoogleMaps: false }
+    );
+    setCity(location[0].city);
+    const reponse =
+      await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=${EXCLUDE}&appid=${API_KEY}
+  `);
+    const json = await reponse.json();
+    console.log(json);
   };
 
   useEffect(() => {
-    ask();
+    getWeather();
   }, []);
 
   return (
     <View style={styles.container}>
       <View style={styles.city}>
-        <Text style={styles.cityName}>Tokyo</Text>
+        <Text style={styles.cityName}>{city}</Text>
       </View>
       <ScrollView
         pagingEnabled

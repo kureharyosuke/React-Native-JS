@@ -21,3 +21,9 @@
 ### Snack
 
 scnack.expo.dev
+
+### Open Weather API
+
+https://openweathermap.org/api
+
+https://openweathermap.org/api/one-call-api

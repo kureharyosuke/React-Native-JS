@@ -80,3 +80,64 @@ console.log("🚀 ~ file: App.js ~ line 19 ~ ask ~ permission", permission);
 // "status": "granted",
 // }
 };
+
+#### Location.getCurrentPositionAsync(options)
+
+사용자의 현재 위치를 1회성으로 전달하도록 요청합니다. 주어진 accuracy옵션 에 따라 특히 건물 안에 있을 때 해결하는 데 시간이 걸릴 수 있습니다.
+참고: 호출하면 위치 관리자가 위치 수정을 가져오는 데 몇 초가 걸릴 수 있습니다. 빠른 응답을 기대하고 높은 정확도가 필요하지 않은 경우 Location.getLastKnownPositionAsync 사용을 고려하십시오 .
+
+```js
+🚀 ~ file: App.js ~ line 25 ~ ask ~ location Object {
+"coords": Object {
+"accuracy": 5,
+"altitude": 0,
+"altitudeAccuracy": -1,
+"heading": -1,
+"latitude": 37.785834,
+"longitude": -122.406417,
+"speed": -1,
+},
+"timestamp": 1638717770439.892,
+}
+```
+
+```js
+const ask = async () => {
+    const { granted } = await Location.requestForegroundPermissionsAsync();
+    if (!granted) {
+      setOk(false);
+    }
+    const {
+      coords: { latitude, longitude },
+    } = await Location.getCurrentPositionAsync({
+      accuracy: Location.Accuracy.BestForNavigation,
+    });
+    const location = await Location.reverseGeocodeAsync(
+      {
+        latitude,
+        longitude,
+      },
+      { useGoogleMaps: false }
+    );
+    console.log("🚀 ~ file: App.js ~ line 34 ~ ask ~ location", location);
+    🚀 ~ file: App.js ~ line 34 ~ ask ~ location Array [
+  Object {
+    "city": "San Francisco",
+    "country": "United States",
+    "district": "Union Square",
+    "isoCountryCode": "US",
+    "name": "1 Stockton St",
+    "postalCode": "94108",
+    "region": "CA",
+    "street": "Stockton St",
+    "subregion": "San Francisco County",
+    "timezone": "America/Los_Angeles",
+  },
+]
+  };
+```
+
+```js
+console.log("🚀 ~ file: App.js ~ line 35 ~ ask ~ location", location[0].city);
+🚀 ~ file: App.js ~ line 35 ~ ask ~ location San Francisco
+```
