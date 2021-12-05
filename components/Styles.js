@@ -1,8 +1,7 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text } from "react-native";
 
-export default function App() {
+export default function Styles() {
   return (
     <View style={styles.container}>
       <View style={styles.city}>
@@ -29,37 +28,3 @@ export default function App() {
     </View>
   );
 }
-
-// StyleSheet.create({}) create a style object
-// Stylesheet is auto
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "tomato",
-  },
-  city: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  cityName: {
-    fontSize: 68,
-    fontWeight: "500",
-  },
-  weather: {
-    flex: 3,
-  },
-  day: {
-    flex: 1,
-    alignItems: "center",
-  },
-  temp: {
-    marginTop: 50,
-    fontSize: 178,
-  },
-  description: {
-    marginTop: -30,
-    fontSize: 60,
-  },
-});

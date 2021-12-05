@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 
-export default function ViewComponent(props) {
+export default function WidthHeight() {
   return (
     <View style={{ flexDirection: "row" }}>
       <View
