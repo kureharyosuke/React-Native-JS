@@ -38,8 +38,8 @@
 
 #### ScrollView
 
-- horizontal
-- contentContainerStyle
+- horizontal: 좌우로 스크롤
+- contentContainerStyle : 좌우스크롤 스타일 적용
   -- ScrollView 하는 부분에는 flex 사용하면 안된다.
 - pagingEnabled
 - showsHorizontalScrollIndicator={false} : 스크롤의 수를 보이지 않게 한다.
