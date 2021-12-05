@@ -10,6 +10,16 @@ export default function App() {
       <View style={{ flex: 1, backgroundColor: "tomato" }}></View>
       <View style={{ flex: 1, backgroundColor: "teal" }}></View>
       <View style={{ flex: 1, backgroundColor: "orange" }}></View>
+      <Text
+        style={{
+          flex: 2,
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
+        React
+      </Text>
       <View style={{ flex: 1, backgroundColor: "blue" }}></View>
       <View style={{ flex: 1, backgroundColor: "green" }}></View>
     </View>
