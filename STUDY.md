@@ -35,3 +35,7 @@
 #### widht height 가 아닌 flex로 제어해야한다.
 
 그래야, 핸드폰의 기종마다 대응할수 있다.
+
+#### ScrollView
+
+#### horizontal prop

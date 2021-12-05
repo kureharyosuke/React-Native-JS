@@ -1,14 +1,12 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
 
-export default function App() {
+export default function ScrollView() {
   return (
     <View style={styles.container}>
       <View style={styles.city}>
         <Text style={styles.cityName}>Tokyo</Text>
       </View>
-      <ScrollView horizontal style={styles.weather}>
+      <ScrollView style={styles.weather}>
         <View style={styles.day}>
           <Text style={styles.temp}>27</Text>
           <Text style={styles.description}>Sunny</Text>
