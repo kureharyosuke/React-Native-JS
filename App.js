@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, ScrollView, Dimensions } from "react-native";
+import * as Location from "expo-location";
 
 // const { width, height } = Dimensions.get("window");
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
@@ -11,6 +12,23 @@ console.log(SCREEN_WIDTH);
 console.log(SCREEN_HEIGHT);
 
 export default function App() {
+  const [location, setLocation] = useState();
+  const [ok, setOk] = useState(true);
+  const ask = async () => {
+    const permission = await Location.requestForegroundPermissionsAsync();
+    console.log("🚀 ~ file: App.js ~ line 19 ~ ask ~ permission", permission);
+    //   🚀 ~ file: App.js ~ line 19 ~ ask ~ permission Object {
+    //   "canAskAgain": true,
+    //   "expires": "never",
+    //   "granted": true,
+    //   "status": "granted",
+    //   }
+  };
+
+  useEffect(() => {
+    ask();
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.city}>
