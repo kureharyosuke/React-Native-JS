@@ -31,3 +31,7 @@
 #### Expo SDK API
 
 - React Native API 없으면, EXPO SDK API 찾을것.
+
+#### widht height 가 아닌 flex로 제어해야한다.
+
+그래야, 핸드폰의 기종마다 대응할수 있다.
