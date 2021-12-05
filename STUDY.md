@@ -38,4 +38,14 @@
 
 #### ScrollView
 
-#### horizontal prop
+- horizontal
+- contentContainerStyle
+  -- ScrollView 하는 부분에는 flex 사용하면 안된다.
+
+##### horizontal prop
+
+- 좌우로 스크롤
+
+#### Dimensions
+
+- 핸드폰 기종의 widht height 를 알수 있어서, 적용할수 있다.
