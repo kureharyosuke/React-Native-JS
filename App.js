@@ -10,7 +10,7 @@ export default function App() {
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center",
-        border: "1px solid black",
+//         border: "1px solid black",
       }}
     >
       <Text style={styles.text}>React Native</Text>
